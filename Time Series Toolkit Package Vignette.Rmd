@@ -1,0 +1,48 @@
+---
+title: "Time Series Toolkit Package"
+author: "Coleman Zhang"
+date: "October 8, 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This is a document on Time Series Toolkit Package. There are three tools in this package: tscor, tsplot, and tscorplot.
+
+First, let's generate a random 10-by-10 matrix as an example. This matrix will be our time series matrix, with rows as different time series, and columns as time periods.
+
+```{r 1}
+mat <- matrix(rnorm(200), ncol=20)
+mat
+```
+
+## 1. tscor: returns a correlation matrix of an n-by-t time series matrix
+
+We have n time series in our matrix. To compute correlation matrix, we take pairwise correlation of n rows. The function will return an n-by-n matrix
+
+```{r 2,warning=FALSE}
+library(tstool)
+library(reshape2)
+library(ggplot2)
+```
+
+```{r 4,results='hide', message=FALSE, warning=FALSE}
+tscor(mat)
+```
+## 2. tsplot: returns a plot of n time series
+```{r 5}
+tsplot(mat)
+```
+
+
+## 3. tscorplot: generate a correlation matrix heat map
+
+```{r 3}
+tscorplot(mat)
+```

@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1507488915968.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "58CC4CB1",
+    "lastKnownWriteTime" : 7308604914264011873,
+    "last_content_update" : 1507488915968,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "F5F416CE",
+        "caption" : "metcor",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=metcor&cache_key=F5F416CE",
+        "displayedObservations" : 100,
+        "environment" : "",
+        "object" : "metcor",
+        "preview" : 0,
+        "totalObservations" : 100,
+        "variables" : 3
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

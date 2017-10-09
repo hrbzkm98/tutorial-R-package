@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#'Compute correlation matrix of an n by t time series matrix\n#'@param x An n by t time series matrix\n#'@return An n by n correlation matrix\n#'@export\ntscor <- function(x) {\n  n = nrow(x)\n  cormat = matrix(nrow = n, ncol = n)\n  for (i in 1:n){\n    for (j in 1:n){\n      cormat[i,j] = cor(x[i,],x[j,])\n    }\n  }\n  return(cormat)\n}\n\n#'Return a visualization of time series\n#'@param x An n by t time series matrix\n#'@return A gglot with n time series on one graph\n#'@export\ntsplot <- function(x) {\n  df <- melt(x)\n  n = ncol(x)\n  g = ggplot(df,aes(Var2,value,group = factor(Var1))) + geom_line(aes(color=factor(Var1))) + xlab('Time') + ylab('Value') + labs(color='Time Series Label')\n  g = g + scale_x_continuous(limits=c(0, n+1),breaks = c(1:n))\n  g = g + theme(plot.title = element_text(hjust = 0.5))\n  g = g + ggtitle('Time Series Visualization')\n  print(g)\n}\n\n#'Return a visualization of time series correlation matrix\n#'@param x An n by t time series matrix\n#'@return A heatmap visualizing correlation matrix\n#'@export\ntscorplot <- function(x) {\n  n = nrow(x)\n  c = melt(tscor(x))\n  g = ggplot(c, aes(x=Var1, y=Var2, fill=value)) + geom_tile()\n  g = g + scale_fill_continuous(limits=c(-1, 1), breaks=seq(-1,1,by=0.5))\n  g = g + scale_x_continuous(name=\"Time Series Labels\", limits=c(0, n+1),breaks = c(1:n))\n  g = g + scale_y_continuous(name=\"Time Series Labels\", limits=c(0, n+1),breaks = c(1:n))\n  g = g + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())\n  g = g + theme(plot.title = element_text(hjust = 0.5))\n  g = g + ggtitle('Correlation Matrix Heat Map')\n  print(g)\n}\n",
+    "created" : 1507483807637.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1252011442",
+    "id" : "792A8D93",
+    "lastKnownWriteTime" : 1507491532,
+    "last_content_update" : 1507491532406,
+    "path" : "~/tstool/R/tscor.R",
+    "project_path" : "R/tscor.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
